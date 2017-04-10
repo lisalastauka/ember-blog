@@ -1,0 +1,54 @@
+<!-- Blog Post -->
+
+<!-- Title -->
+<h1>{{model.title}}</h1>
+
+<!-- Author -->
+<p class="lead">
+  by {{model.author}}
+</p>
+
+<hr>
+
+<!-- Date/Time -->
+<p><span class="glyphicon glyphicon-time"></span> Posted on {{model.date}}</p>
+
+<hr>
+
+<!-- Preview Image -->
+<img class="img-responsive" src={{model.image}} alt="">
+
+<hr>
+
+<!-- Post Content -->
+<p>{{model.article}}</p>
+<hr>
+
+<!-- Blog Comments -->
+
+<!-- Comments Form -->
+<div class="well">
+  <h4>Leave a Comment:</h4>
+  <form {{action "submit" on="submit"}} method="post"  role="form">
+    <div class="form-group">
+      {{textarea value=text class="form-control" rows="3"}}
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<hr>
+
+<!-- Posted Comments -->
+
+{{#each model.comments as |comment|}}
+  <div class="media">
+      <img class="pull-left" class="media-object" src={{comment.image}} alt="">
+    <div class="media-body">
+      <h4 class="media-heading">{{comment.author}}
+        <small>{{comment.date}}</small>
+      </h4>
+      {{comment.text}}
+    </div>
+  </div>
+{{/each}}

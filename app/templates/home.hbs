@@ -1,0 +1,41 @@
+
+
+
+
+                <h1 class="page-header">
+                    Page Heading
+                    <small>Secondary Text</small>
+                </h1>
+
+
+                {{#each model as |post|}}
+                  <h2>
+                  {{#link-to 'post' post}}
+                    {{post.title}}
+                  {{/link-to}}
+                  </h2>
+                  <p class="lead">
+                    by {{post.author}}
+                  </p>
+                  <p><span class="glyphicon glyphicon-time"></span> Posted on {{post.date}}</p>
+                  <hr>
+                  <img class="img-responsive" src="{{post.image}}" alt="">
+                  <hr>
+                  <p>{{post.article}}</p>
+                  {{#link-to 'post' post class="btn btn-primary"}}
+                    Read More <span class="glyphicon glyphicon-chevron-right"></span>
+                  {{/link-to}}
+                  <hr>
+                {{/each}}
+
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="previous">
+                        <a href="#">&larr; Older</a>
+                    </li>
+                    <li class="next">
+                        <a href="#">Newer &rarr;</a>
+                    </li>
+                </ul>
+
+

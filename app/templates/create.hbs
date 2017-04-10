@@ -1,0 +1,15 @@
+<div class="well">
+  <h3>Create your post:</h3>
+  <form {{action "submit" on="submit"}} method="post" role="form">
+    <div class="form-group">
+      <span>Your name:</span>
+      {{input value=model.author class="form-control"}}
+      <span>Title:</span>
+      {{input value=model.title class="form-control"}}
+      <span>Post:</span>
+      {{textarea value=model.article class="form-control" rows="10" placeholder="Write something..."}}
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
